@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Cute Doog</title>
+</head>
+<body >
+	<h1 align="center">Welcome to random pick selector</h1>
+	<button onclick="change()"> Click here to change </button><br>
+	<br>
+	<img src="https://images.dog.ceo/breeds/african/n02116738_10476.jpg" alt="DOG" height="300" width="300" align="center" id="image" />
+<script >
+	function change(){
+	var http=new XMLHttpRequest();
+	var img=document.getElementById('image');
+	
+	http.onreadystatechange=function(){
+		 if (http.readyState == 4 && http.status == 200) {
+      var n = JSON.parse(http.responseText);
+      console.log(n.message);
+      img.src = n.message;
+    }
+}
+		var url="https://dog.ceo/api/breeds/image/random";
+		http.open("GET",url, true);
+			http.send();
+	}
+</script>
+</body>
+</html>
