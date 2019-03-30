@@ -8,12 +8,21 @@
 	<h1 align="center">Welcome to random pick selector</h1>
 	<button onclick="change()"> Click here to change </button><br>
 	<br>
-	<img src="https://images.dog.ceo/breeds/african/n02116738_10476.jpg" alt="DOG" height="300" width="300" align="center" id="image" />
+		<img src="https://images.dog.ceo/breeds/african/n02116738_10476.jpg" alt="DOG" height="300" width="300" align="center" id="image" />
+
+		<img src="https://images.dog.ceo/breeds/african/n02116738_10476.jpg" alt="DOG" height="300" width="300" align="center" id="image1" />
+
+		<img src="https://images.dog.ceo/breeds/african/n02116738_10476.jpg" alt="DOG" height="300" width="300" align="center" id="image2" />
+
+			<img src="https://images.dog.ceo/breeds/african/n02116738_10476.jpg" alt="DOG" height="300" width="300" align="center" id="image3" />
 <script >
 	function change(){
-	var http=new XMLHttpRequest();
-	var img=document.getElementById('image');
 	
+	var img=document.getElementById('image');
+	var img1=document.getElementById('image1');
+	var img2=document.getElementById('image2');
+	var img3=document.getElementById('image3');
+	var http=new XMLHttpRequest();
 	http.onreadystatechange=function(){
 		 if (http.readyState == 4 && http.status == 200) {
       var n = JSON.parse(http.responseText);
@@ -24,6 +33,39 @@
 		var url="https://dog.ceo/api/breeds/image/random";
 		http.open("GET",url, true);
 			http.send();
+			var http1=new XMLHttpRequest();
+	http1.onreadystatechange=function(){
+		 if (http1.readyState == 4 && http1.status == 200) {
+      var n = JSON.parse(http1.responseText);
+      console.log(n.message);
+      img1.src = n.message;
+    }
+}
+		var url="https://dog.ceo/api/breeds/image/random";
+		http1.open("GET",url, true);
+			http1.send();
+				var http2=new XMLHttpRequest();
+	http2.onreadystatechange=function(){
+		 if (http2.readyState == 4 && http2.status == 200) {
+      var n = JSON.parse(http2.responseText);
+      console.log(n.message);
+      img2.src = n.message;
+    }
+}
+		var url="https://dog.ceo/api/breeds/image/random";
+		http2.open("GET",url, true);
+			http2.send();
+					var http3=new XMLHttpRequest();
+	http3.onreadystatechange=function(){
+		 if (http3.readyState == 4 && http3.status == 200) {
+      var n = JSON.parse(http3.responseText);
+      console.log(n.message);
+      img3.src = n.message;
+    }
+}
+		var url="https://dog.ceo/api/breeds/image/random";
+		http3.open("GET",url, true);
+			http3.send();
 	}
 </script>
 </body>
